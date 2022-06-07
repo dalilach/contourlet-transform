@@ -1,6 +1,6 @@
 import numpy as np
 import torch
-from contourlet import sampling
+import sampling
 from torch.nn.functional import conv2d, pad, conv1d
 
 

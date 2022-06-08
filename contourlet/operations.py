@@ -6,7 +6,7 @@ from torch.nn.functional import conv2d, pad, conv1d
 
 def lp_dec(img, h, g):
     device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
-    height, w = img.shape[2], img.shape[3]
+    height, w = img.shape[1], img.shape[2]
     padding_per = torch.nn.ReflectionPad2d((4,4,4,4))
     low = conv2d(padding_per(img), h, padding=0, groups=3)
     low = low[:, :,::2, ::2]
